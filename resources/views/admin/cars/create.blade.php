@@ -12,6 +12,14 @@
         </div>
 
         <div class="mt-10 bg-gray-50 p-6 rounded-lg">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg  bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                        role="alert">
+                        <span class="font-medium">{{ $error }}
+                    </div>
+                @endforeach
+            @endif
             <form action="{{ route('admin.cars.store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="mb-6">

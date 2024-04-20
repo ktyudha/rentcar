@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Car\CarController;
+use App\Http\Controllers\Admin\Rentcar\RentcarController;
 
 Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
     Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
@@ -23,6 +24,7 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
     });
 
     Route::resource('cars', CarController::class);
+    Route::resource('rentcar', RentcarController::class);
 
     Route::middleware('auth:web', 'permission:admin access')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');

@@ -1,13 +1,13 @@
 @extends('admin.layout')
 
 @section('title')
-    Cars |
+    Rentcar |
 @endsection
 
 @section('content')
 
     <div class="block w-full bg-gray-50 py-6 rounded-lg">
-        <h1 class="text-4xl font-medium text-[#073545] px-10">Car</h1>
+        <h1 class="text-4xl font-medium text-[#073545] px-10">Rentcar</h1>
     </div>
 
     <div class="mt-10 bg-gray-50 p-6 rounded-lg">
@@ -40,8 +40,8 @@
 
 
         <div class="mb-5">
-            <a href="{{ route('admin.cars.create') }}" class=" text-sm text-white bg-green-400 py-2 px-4 rounded-full">
-                <i class="fa fa-plus"></i> Add Car
+            <a href="{{ route('admin.rentcar.create') }}" class=" text-sm text-white bg-green-400 py-2 px-4 rounded-full">
+                <i class="fa fa-plus"></i> Add Rent
             </a>
         </div>
 
@@ -54,10 +54,10 @@
                             No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Image
+                            Author
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Name
+                            Car
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Information
@@ -74,23 +74,23 @@
                                 {{ ++$key }}
                             </td>
                             <td class="px-6 py-4">
-                                <img src="{{ asset(@$model->image) ?: asset('static/admin/img/default.png') }}"
-                                    alt="" class="h-14">
+                                {{ @$model['author'] }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ @$model['name'] }}
+                                {{ @$model['car_id'] }}
                             </td>
                             <td class="px-6 py-4">
-                                <p> <b> {{ @$model['nopol'] }}</b></p>
-                                <p class="mb-2"> {{ @$model['seat'] }} Seat</p>
+                                <p> <b> {{ @$model['event'] }}</b></p>
+                                <p class="mb-2"> {{ @$model['destination'] }}</p>
+                                <p class="mb-2"> {{ @$model['start_time'] }} - {{ @$model['finish_time'] }}</p>
                                 <span class="px-2 py-1 bg-blue-700 rounded-full capitalize text-white">
-                                    {{ @$model['bbm'] }}</span>
+                                    {{ @$model['status'] }}</span>
                             </td>
                             <td class="px-6 py-4">
                                 <div class="inline-flex">
                                     <a class="block px-4 py-2 bg-yellow-400 rounded text-white font-medium"
-                                        href="{{ route('admin.cars.edit', $model->id) }}">Edit</a>
-                                    <form action="{{ route('admin.cars.destroy', $model->id) }}" method="post"
+                                        href="{{ route('admin.rentcar.edit', $model->id) }}">Edit</a>
+                                    <form action="{{ route('admin.rentcar.destroy', $model->id) }}" method="post"
                                         id="deleteForm-{{ $model->slug }}">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}

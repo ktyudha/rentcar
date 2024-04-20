@@ -16,7 +16,7 @@ class CarController extends Controller
         $this->middleware('permission:cars update')->only('edit', 'update');
         $this->middleware('permission:cars delete')->only('destroy');
 
-        view()->share('menuActive', 'car');
+        view()->share('menuActive', 'cars');
     }
     /**
      * Display a listing of the resource.
@@ -49,11 +49,11 @@ class CarController extends Controller
             'image' => ['required', 'file', 'mimes:png,jpg,jpeg'],
         ]);
 
-        $team = new Car($request->all());
+        $car = new Car($request->all());
         $path = $request->file('image')->store('ugc/cars');
-        $team->image = $path;
+        $car->image = $path;
 
-        $team->save();
+        $car->save();
 
         return redirect()->route('admin.cars.index')->with([
             'status' => 'success',
@@ -114,8 +114,8 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        if (Storage::exists($car->image->path)) {
-            Storage::delete($car->image->path);
+        if (Storage::exists($car->image)) {
+            Storage::delete($car->image);
         }
 
         if ($car->delete()) {

@@ -65,7 +65,7 @@
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 mb-3"
                         onchange="document.querySelector('img#image').src = window.URL.createObjectURL(this.files[0])"
                         accept="image/*" requireds>
-                    <img src="{{ asset(@$model['image']->path) }}" alt="image" class="h-40 rounded-lg" id="image">
+                    <img src="{{ asset(@$model['image']) }}" alt="image" class="h-40 rounded-lg" id="image">
                 </div>
 
                 <div class="form-actions">
