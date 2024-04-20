@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('title')
-    Sliders |
+    Cars |
 @endsection
 
 @section('content')
