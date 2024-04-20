@@ -1,153 +1,56 @@
-<div class="navbar-bg"></div>
-<nav class="navbar navbar-expand-lg main-navbar">
-  <form class="form-inline mr-auto">
-    <ul class="navbar-nav mr-3">
-      <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-      <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
-    </ul>
-    <div class="search-element">
-      <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
-      <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-      <div class="search-backdrop"></div>
-      <div class="search-result">
-        <div class="search-header">
-          Histories
-        </div>
-        <div class="search-item">
-          <a href="#">How to hack NASA using CSS</a>
-          <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-        </div>
-        <div class="search-header">
-          Result
-        </div>
-        <div class="search-item">
-          <a href="#">
-            <img class="mr-3 rounded" width="30" src="../assets/img/products/product-3-50.png" alt="product">
-            oPhone S9 Limited Edition
-          </a>
-        </div>
-        <div class="search-item">
-          <a href="#">
-            <img class="mr-3 rounded" width="30" src="../assets/img/products/product-2-50.png" alt="product">
-            Drone X2 New Gen-7
-          </a>
-        </div>
-        <div class="search-item">
-          <a href="#">
-            <img class="mr-3 rounded" width="30" src="../assets/img/products/product-1-50.png" alt="product">
-            Headphone Blitz
-          </a>
-        </div>
-        <div class="search-header">
-          Projects
-        </div>
-        <div class="search-item">
-          <a href="#">
-            <div class="search-icon bg-danger text-white mr-3">
-              <i class="fas fa-code"></i>
-            </div>
-            Stisla Admin Template
-          </a>
-        </div>
-        <div class="search-item">
-          <a href="#">
-            <div class="search-icon bg-primary text-white mr-3">
-              <i class="fas fa-laptop"></i>
-            </div>
-            Create a new Homepage Design
-          </a>
-        </div>
-      </div>
-    </div>
-  </form>
-  <ul class="navbar-nav navbar-right">
-    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
-      <div class="dropdown-menu dropdown-list dropdown-menu-right">
-        <div class="dropdown-header">Messages
-          <div class="float-right">
-            <a href="#">Mark All As Read</a>
-          </div>
-        </div>
-        <div class="dropdown-list-content dropdown-list-message">
-          <a href="#" class="dropdown-item dropdown-item-unread">
-            <div class="dropdown-item-avatar">
-              <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle">
-              <div class="is-online"></div>
-            </div>
-            <div class="dropdown-item-desc">
-              <b>Kusnaedi</b>
-              <p>Hello, Bro!</p>
-              <div class="time">10 Hours Ago</div>
-            </div>
-          </a>
-          <a href="#" class="dropdown-item dropdown-item-unread">
-            <div class="dropdown-item-avatar">
-              <img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle">
-            </div>
-            <div class="dropdown-item-desc">
-              <b>Dedik Sugiharto</b>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="time">12 Hours Ago</div>
-            </div>
-          </a>
-          <a href="#" class="dropdown-item">
-            <div class="dropdown-item-avatar">
-              <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle">
-            </div>
-            <div class="dropdown-item-desc">
-              <b>Alfa Zulkarnain</b>
-              <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-              <div class="time">Yesterday</div>
-            </div>
-          </a>
-        </div>
-        <div class="dropdown-footer text-center">
-          <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-        </div>
-      </div>
-    </li>
-    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
-      <div class="dropdown-menu dropdown-list dropdown-menu-right">
-        <div class="dropdown-header">Notifications
-          <div class="float-right">
-            <a href="#">Mark All As Read</a>
-          </div>
-        </div>
-        <div class="dropdown-list-content dropdown-list-icons">
-          <a href="#" class="dropdown-item dropdown-item-unread">
-            <div class="dropdown-item-icon bg-primary text-white">
-              <i class="fas fa-code"></i>
-            </div>
-            <div class="dropdown-item-desc">
-              Template update is available now!
-              <div class="time text-primary">2 Min Ago</div>
-            </div>
-          </a>
-        </div>
-        <div class="dropdown-footer text-center">
-          <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-        </div>
-      </div>
-    </li>
-    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-      <img alt="image" src="{{ auth()->user()->image->sm }}" class="rounded-circle mr-1">
-      <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div></a>
-      <div class="dropdown-menu dropdown-menu-right">
-        <div class="dropdown-title">Logged in 5 min ago</div>
-        <!-- <a href="#" class="dropdown-item has-icon">
-          <i class="far fa-user"></i> Profile
-        </a>
-        <a href="#" class="dropdown-item has-icon">
-          <i class="fas fa-bolt"></i> Activities
-        </a> -->
-        <a href="{{ route('admin.settings.basic-info.edit') }}" class="dropdown-item has-icon">
-          <i class="fas fa-cog"></i> Settings
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="{{ route('admin.auth.logout') }}" class="dropdown-item has-icon text-danger">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </a>
-      </div>
-    </li>
-  </ul>
-</nav>
+ <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+     <div class="px-3 py-3 lg:px-5 lg:pl-3">
+         <div class="flex items-center justify-between">
+             <div class="flex items-center justify-start rtl:justify-end">
+                 <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+                     type="button"
+                     class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                     <span class="sr-only">Open sidebar</span>
+                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                         <path clip-rule="evenodd" fill-rule="evenodd"
+                             d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                         </path>
+                     </svg>
+                 </button>
+                 <a href="{{ route('admin.index') }}" class="flex ms-2 md:me-24">
+                     <img src="{{ asset('static/admin/img/sekawan.png') }}" class="h-8 me-3" alt="Sekawan Logo" />
+                     <span
+                         class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Sekawan
+                         Media</span>
+                 </a>
+             </div>
+             <div class="flex items-center">
+                 <div class="flex items-center ms-3">
+                     <div>
+                         <button type="button"
+                             class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                             aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                             <span class="sr-only">Open user menu</span>
+                             <img class="w-8 h-8 rounded-full" alt="image"
+                                 src="{{ auth()->user()->image ?: asset('static/admin/img/default.png') }}">
+                         </button>
+                     </div>
+                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                         id="dropdown-user">
+                         <div class="px-4 py-3" role="none">
+                             <p class="text-sm text-gray-900 dark:text-white" role="none">
+                                 {{ auth()->user()->name }}
+                             </p>
+                             <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                                 {{ auth()->user()->email }}
+                             </p>
+                         </div>
+                         <ul class="py-1" role="none">
+                             <li>
+                                 <a href="{{ route('admin.auth.logout') }}"
+                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                     role="menuitem">Sign out</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </nav>

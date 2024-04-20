@@ -14,7 +14,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Website\Home\HomeController;
 
+Route::get('/', [HomeController::class, 'index'])->name('landing.index');
 
 
 

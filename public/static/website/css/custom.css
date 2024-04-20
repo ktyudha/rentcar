@@ -1,0 +1,115 @@
+.page-title .container {
+    height: auto;
+}
+
+.portfolio-item a.popup i {
+    line-height: 40px;
+}
+
+.portfolio-item a.popup.video {
+    right: auto;
+    margin-left: -20px;
+}
+
+.portfolio-item:hover a.popup.video {
+    top: 50px;
+}
+
+.portfolio-item {
+    min-height: 200px;
+}
+
+.portfolio-item img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.mfp-wrap {
+    height: 100% !important;
+}
+
+.blog-box.blog-2 {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.popup-video-image img {
+    width: 100%;
+}
+
+.social .jssocials-share .jssocials-share-link {
+    background: transparent;
+    color: #f7c605;
+}
+
+.social .jssocials-share .jssocials-share-link:hover {
+    background: transparent;
+    color: #353535;
+}
+
+.bg-image-hero {
+    background-image: url("../../../static/website/images/blur.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-image-team {
+    background-image: url("../../../static/website/images/blur-team.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.btn-greetings {
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid #e5e7eb;
+}
+
+.btn-antrian {
+    background-color: #fef1f8;
+}
+
+.btn-video {
+    background-color: transparent;
+}
+
+.btn-plus {
+    background-color: transparent;
+}
+
+.btn-left {
+    background-color: #f3f4f6;
+    border-radius: 100%;
+    padding: 5 6.5;
+}
+
+.btn-right {
+    background-color: #ff46a2;
+    border-radius: 100%;
+    padding: 5 6.5;
+}
+
+.btn-video span {
+    color: black;
+}
+
+.btn-antrian span {
+    color: #ff46a2;
+}
+
+.btn-selengkapnya span {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.text-grid {
+    @apply text-black hover:text-white font-primary;
+}
+
+.border-testimoni {
+    border: 1px solid #f97316;
+}
+
+#Socmed:hover {
+    background-image: url("LibraryHoverTrans.png");
+}
