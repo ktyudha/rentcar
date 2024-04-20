@@ -18,6 +18,12 @@ class Rentcar extends Model
         'finish_time',
     ];
 
+
+    public function car()
+    {
+        return $this->hasOne(Car::class, 'id', 'car_id');
+    }
+
     public static function generateRandomString($length)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

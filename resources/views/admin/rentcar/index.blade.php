@@ -77,7 +77,8 @@
                                 {{ @$model['author'] }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ @$model['car_id'] }}
+                                <b> {{ @$model->car['name'] }}</b> <br>
+                                {{ @$model->car['nopol'] }}
                             </td>
                             <td class="px-6 py-4">
                                 <p> <b> {{ @$model['event'] }}</b></p>
