@@ -11,10 +11,13 @@
 */
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Auth\LoginController;
-use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Car\CarController;
+use App\Http\Controllers\Admin\User\RoleController;
+use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Rentcar\RentcarController;
+use App\Http\Controllers\Admin\User\PermissionController;
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 
 Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
     Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
@@ -22,6 +25,10 @@ Route::group(['prefix' => 'admin-panel', 'as' => 'admin.'], function () {
         Route::post('/login', [LoginController::class, 'store'])->name('auth.login.process');
         Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
     });
+
+    Route::resource('users', UserController::class);
+    Route::resource('roles', RoleController::class);
+    Route::resource('roles/{role}/permissions', PermissionController::class);
 
     Route::resource('cars', CarController::class);
     Route::resource('rentcar', RentcarController::class);

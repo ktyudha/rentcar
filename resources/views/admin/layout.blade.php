@@ -4,7 +4,7 @@
 <head>
     @include('admin.partials.metadata')
     @include('admin.partials.styles')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body>
