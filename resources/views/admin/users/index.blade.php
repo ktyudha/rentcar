@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('title')
-    Rentcar |
+    Users |
 @endsection
 
 @section('content')
@@ -40,7 +40,7 @@
 
 
         <div class="mb-5">
-            <a href="{{ route('admin.rentcar.create') }}" class=" text-sm text-white bg-green-400 py-2 px-4 rounded-full">
+            <a href="{{ route('admin.users.create') }}" class=" text-sm text-white bg-green-400 py-2 px-4 rounded-full">
                 <i class="fa fa-plus"></i> Add Rent
             </a>
         </div>
@@ -54,13 +54,16 @@
                             No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Author
+                            Photo
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Car
+                            Name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Information
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Role
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Action
@@ -68,34 +71,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($models as $key => $model)
+                    @foreach ($users as $key => $model)
                         <tr class="odd:bg-slate-100 even:bg-gray-50 ">
                             <td class="px-6 py-4 ">
                                 {{ ++$key }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ @$model['author'] }}
+                                <img src="{{ asset(@$model->image ?: 'static/admin/img/default.png') }}" alt=""
+                                    class="h-14">
                             </td>
                             <td class="px-6 py-4">
-                                <b> {{ @$model->car['name'] }}</b> <br>
-                                {{ @$model->car['nopol'] }}
+                                <b> {{ @$model['name'] }}</b> <br>
+                                <span class="text-xs">{{ @$model['username'] }}</span>
                             </td>
                             <td class="px-6 py-4">
-                                <p> <b> {{ @$model['event'] }}</b></p>
-                                <p class="mb-2"> {{ @$model['destination'] }}</p>
-                                <p class="mb-2"> {{ @$model['start_time'] }} - {{ @$model['finish_time'] }}</p>
-                                @php
-                                    $classes = ['pertalite', 'pertamax', 'solar'];
-                                @endphp
-                                <span
-                                    class="px-2 py-1 @if (@$model['status'] === 'queue') bg-yellow-300 @elseif (@$model['status'] === 'decline') bg-red-600 @else bg-green-600 @endif rounded-full capitalize text-white">
-                                    {{ @$model['status'] }}</span>
+                                {{ @$model['email'] }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ @$model->roles->first()->name ?? 'No role' }}
                             </td>
                             <td class="px-6 py-4">
                                 <div class="inline-flex">
                                     <a class="block px-4 py-2 bg-yellow-400 rounded text-white font-medium"
-                                        href="{{ route('admin.rentcar.edit', $model->id) }}">Edit</a>
-                                    <form action="{{ route('admin.rentcar.destroy', $model->id) }}" method="post"
+                                        href="{{ route('admin.users.edit', $model->id) }}">Edit</a>
+                                    <form action="{{ route('admin.users.destroy', $model->id) }}" method="post"
                                         id="deleteForm-{{ $model->slug }}">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}
@@ -107,7 +106,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-                @if ($models->isEmpty())
+                @if ($users->isEmpty())
                     <tr>
                         <td colspan="6" class="text-center"> <b>Table is empty</b> </td>
                     </tr>
@@ -116,7 +115,7 @@
         </div>
     </div>
 
-    {{ $models->links() }}
+    {{ $users->links() }}
 
 @stop
 @section('additional-scripts')
