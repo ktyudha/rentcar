@@ -97,6 +97,10 @@
                          </li>
                      </ul>
                  </li>
+             @endif
+             @if (auth()->user()->hasAnyPermission('inboxes read', 'subscribes read') or auth()->user()->hasRole('superadmin'))
+             @endif
+             @can('users read')
                  <li>
                      <button type="button"
                          class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg group hover:bg-gray-100 @if (@$menuActive === 'users') active @endif"
@@ -110,9 +114,14 @@
                              <a href="{{ route('admin.users.index') }}"
                                  class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group @if (@$subMenuActive === 'users') active @endif">Users</a>
                          </li>
+                         <li>
+                             <a href="{{ route('admin.users.index') }}"
+                                 class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group @if (@$subMenuActive === 'roleAndPermissions') active @endif">Role
+                                 & Permission</a>
+                         </li>
                      </ul>
                  </li>
-             @endif
+             @endcan
          </ul>
      </div>
  </aside>

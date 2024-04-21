@@ -12,73 +12,100 @@
         </div>
 
         <div class="mt-10 bg-gray-50 p-6 rounded-lg">
-            <form action="{{ route('admin.rentcar.update', @$model->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.users.update', @$user->id) }}" method="post" enctype="multipart/form-data">
                 {{ method_field('put') }}
                 {{ csrf_field() }}
                 <div class="mb-6">
-                    <label for="author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                        Pemohon</label>
-                    <input type="text" id="author" name="author" aria-describedby="helper-text-explanation"
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                    <input type="text" id="name" name="name" aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Nama Pemohon of the Rentcar" value="{{ $model['author'] }}">
-                </div>
-                <div class="grid grid-cols-3 gap-6 mb-6">
-                    <div>
-                        <label for="car_id"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Car</label>
-                        <select name="car_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full">
-                            <option :value="null" disabled>Car</option>
-                            @foreach ($cars as $car)
-                                <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>
-                                    {{ $car->name }}
-                                    </option=>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div>
-                        <label for="event" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Event
-                        </label>
-                        <input type="text" id="event" name="event" aria-describedby="helper-text-explanation"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
-                            placeholder="Event of the Rentcar" value="{{ $model['event'] }}">
-                    </div>
-
-                    <div>
-                        <label for="destination"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Destination</label>
-                        <input type="text" id="destination" name="destination" aria-describedby="helper-text-explanation"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
-                            placeholder="Destination of the Rentcar" value="{{ $model['destination'] }}">
-                    </div>
-
+                        placeholder="Name" value="{{ old('name') ?: @$user['name'] }}">
                 </div>
                 <div class="grid grid-cols-2 gap-6 mb-6">
                     <div>
-                        <label for="start_time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
-                            Time</label>
-                        <input type="text" id="start_time" name="start_time" aria-describedby="helper-text-explanation"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
-                            placeholder="Start Time of the Rentar" value="{{ $model['start_time'] }}">
+                        <label for="username"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                        <input type="text" id="username" name="username" aria-describedby="helper-text-explanation"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Username" value="{{ old('username') ?: $user->username }}">
                     </div>
                     <div>
-                        <label for="finish_time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Finish
-                            Time</label>
-                        <input type="text" id="finish_time" name="finish_time" aria-describedby="helper-text-explanation"
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                        </label>
+                        <input type="email" id="email" name="email" aria-describedby="helper-text-explanation"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
-                            placeholder="Finish Time of the Rentar" value="{{ $model['finish_time'] }}">
+                            placeholder="Event of the Rentcar" value="{{ old('email') ?: @$user['email'] }}">
                     </div>
                 </div>
+                @if (auth()->user()->id === $user->id)
+                    <hr class="text-gray-400 border-1.5">
+                    <p class="text-gray-400 font-light text-xs mt-2">Change Password</p>
+                    <br>
+                    <div class="grid grid-cols-3 gap-6 mb-6">
+                        <div>
+                            <label for="old_password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Old Password</label>
+                            <input type="password" id="old_password" name="old_password"
+                                aria-describedby="helper-text-explanation"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
+                                placeholder="Old Password">
+                        </div>
 
-                <div class="form-actions">
-                    <a href="{{ route('admin.rentcar.index') }}" class="text-sm text-white bg-gray-300 p-3 rounded">
-                        <i class="fa fa-arrow-left"></i> Back
-                    </a>
-                    <button class="text-sm text-white bg-green-400 p-2.5 rounded mx-3" type="submit">
-                        <i class="fa fa-save"></i> Save
-                    </button>
+                        <div>
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" id="password" name="password" aria-describedby="helper-text-explanation"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
+                                placeholder="New Password">
+                        </div>
+
+                        <div>
+                            <label for="password_confirmation"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password
+                                Confirmation</label>
+                            <input type="password" id="password_confirmation" name="password_confirmation"
+                                aria-describedby="helper-text-explanation"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
+                                placeholder="Password Confirmation">
+                        </div>
+                @endif
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Image</label>
+
+                    <input id="image" type="file" name="image"
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 mb-3"
+                        onchange="document.querySelector('img#image').src = window.URL.createObjectURL(this.files[0])"
+                        accept="image/*" requireds>
+                    <img src="{{ asset('static/admin/img/default.png') }}" alt="image" class="h-40 rounded-lg"
+                        id="image">
                 </div>
-            </form>
+                @if (auth()->user()->hasRole('superadmin'))
+                    <div>
+                        <label for="role"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+                        <select name="role" id="role"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full">
+                            <option disabled @if (!old('role')) selected @endif>Select Role</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->name }}" @if (old('role') === $role->name) selected @endif
+                                    @if ($role->name === 'superadmin') disabled @endif>
+                                    {{ $role->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
+        </div>
+
+        <div class="form-actions">
+            <a href="{{ route('admin.rentcar.index') }}" class="text-sm text-white bg-gray-300 p-3 rounded">
+                <i class="fa fa-arrow-left"></i> Back
+            </a>
+            <button class="text-sm text-white bg-green-400 p-2.5 rounded mx-3" type="submit">
+                <i class="fa fa-save"></i> Save
+            </button>
+        </div>
+        </form>
         </div>
     </section>
 

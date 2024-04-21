@@ -93,8 +93,8 @@
                             <td class="px-6 py-4">
                                 <div class="inline-flex">
                                     <a class="block px-4 py-2 bg-yellow-400 rounded text-white font-medium"
-                                        href="{{ route('admin.rentcar.edit', $model->id) }}">Edit</a>
-                                    <form action="{{ route('admin.rentcar.destroy', $model->id) }}" method="post"
+                                        href="{{ route('admin.users.edit', $model->id) }}">Edit</a>
+                                    <form action="{{ route('admin.users.destroy', $model->id) }}" method="post"
                                         id="deleteForm-{{ $model->slug }}">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}
