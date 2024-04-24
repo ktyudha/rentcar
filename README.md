@@ -17,7 +17,7 @@
 10. run `npm run dev` -> jangan close terminal nya, akan otomatis build ulang ketika ada perubahan
 
 Jika kalian menggunakan `php artisan serve` sebagai tempat untuk menjalankan aplikasi ini, dan kalian menemukan error.
-maka gunakan `Virtual Host`, tata cara membuat virtual host ada [di sini](https://www.jurnalweb.com/cara-membuat-virtual-host-di-xampp-windows/), dengan nama domain `compro.aksa`
+maka gunakan `Virtual Host`, tata cara membuat virtual host ada [di sini](https://www.jurnalweb.com/cara-membuat-virtual-host-di-xampp-windows/),
 
 ### LINUX
 
